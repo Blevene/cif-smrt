@@ -1,5 +1,8 @@
 Revision history for cif-smrt-perl v1.
 
+0.99.01 2012-06-29
+	- branched to cif_v3 for hooking it into cif-router/cif-db/hadoop/hbase
+	
 0.99.01 2012-04-27
     - initial release
     - re-factored old "cif_feedparser", CIF::FeedParser to CIF::Smrt
