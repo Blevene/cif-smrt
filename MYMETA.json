@@ -1,0 +1,63 @@
+{
+   "abstract" : "unknown",
+   "author" : [
+      "unknown"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Module::Install version 1.06, CPAN::Meta::Converter version 2.112150",
+   "license" : [
+      "unknown"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "CIF-smrt-perl",
+   "no_index" : {
+      "directory" : [
+         "inc"
+      ]
+   },
+   "prereqs" : {
+      "build" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.59"
+         }
+      },
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.59"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Class::Accessor" : "0.34",
+            "Config::Simple" : "4.59",
+            "Config::Simpler" : "4.50",
+            "Date::Manip" : "6.11",
+            "DateTime" : "0.42",
+            "DateTime::Format::DateParse" : "0.04",
+            "Digest::MD5" : "2.27",
+            "Digest::SHA" : "2.10",
+            "Encode" : "2.23",
+            "File::Spec" : "0.8",
+            "File::Type" : "0.22",
+            "Google::ProtocolBuffers" : "0.08",
+            "Iodef::Pb::Simple" : 0,
+            "LWP::Protocol::https" : "6.02",
+            "LWP::UserAgent" : "6.02",
+            "Linux::Cpuinfo" : "1.7",
+            "MIME::Base64" : "3.06",
+            "Module::Pluggable" : "3.9",
+            "OSSP::uuid" : "1.05",
+            "Regexp::Common" : "2.122",
+            "Regexp::Common::net::CIDR" : "0.02",
+            "Try::Tiny" : "0.04",
+            "URI::Escape" : "1.56",
+            "perl" : "5.008008"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "version" : "3.00"
+}
