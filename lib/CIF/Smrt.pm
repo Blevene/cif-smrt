@@ -6,7 +6,7 @@ use strict;
 use warnings;
 use threads;
 
-our $VERSION = '0.99_01';
+our $VERSION = '3.00';
 $VERSION = eval $VERSION;  # see L<perlmodstyle>
 
 use CIF qw/generate_uuid_url generate_uuid_random is_uuid/;
@@ -20,7 +20,7 @@ use Digest::SHA1 qw/sha1_hex/;
 use URI::Escape;
 use Try::Tiny;
 use Iodef::Pb::Simple;
-require CIF::Archive;
+#require CIF::Archive;
 #use ZeroMQ qw(:all);
 
 __PACKAGE__->follow_best_practice;
