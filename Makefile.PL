@@ -34,5 +34,6 @@ requires 'File::Spec' => '0.8';
 requires 'URI::Escape' => '1.56';
 requires 'Encode' => '2.23';
 requires 'Iodef::Pb::Simple' => '0.00';
+require  'IO::Scalar' => '2.11';
 
 WriteAll();

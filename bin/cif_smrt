@@ -2,6 +2,11 @@
 
 use strict;
 
+#use lib '../cif-dbi-perl/lib';
+use lib '../cif-perl/lib';
+#use lib '../cif-client-perl/lib';
+use lib '/usr/local/lib/cif-protocol/pb-perl/lib';
+
 # fix lib paths, some may be relative
 BEGIN {
     require File::Spec;
