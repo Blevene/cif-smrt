@@ -33,7 +33,7 @@ my @processors = __PACKAGE__->plugins;
 sub new {
     my $class = shift;
     my $args = shift;
-    
+
     my $self = {};
     bless($self,$class);
     
@@ -88,7 +88,7 @@ sub init_rules {
     my $defaults    = $args->{'rules'}->param(-block => 'default');
     
     my $rules       = $args->{'rules'}->param(-block => $self->get_feed());
-    map { print "map $_\n"; $defaults->{$_} = $rules->{$_} } keys (%$rules);
+    map { $defaults->{$_} = $rules->{$_} } keys (%$rules);
     
     unless(is_uuid($defaults->{'guid'})){
         $defaults->{'guid'} = generate_uuid_url($defaults->{'guid'});
@@ -183,7 +183,7 @@ sub parse {
         } elsif($content =~ /^#?\s?"\S+","\S+"/){
             require CIF::Smrt::ParseCsv;
             $return = CIF::Smrt::ParseCsv::parse($f,$content);
-        } else {
+        } else { 
             require CIF::Smrt::ParseTxt;
             $return = CIF::Smrt::ParseTxt::parse($f,$content);
         }

@@ -26,6 +26,7 @@ sub parse {
         map { $h->{$_} = $f->{$_} } keys %$f;
         push(@array,$h);
     }
+    use Data::Dumper;
     return(\@array);
 
 }
