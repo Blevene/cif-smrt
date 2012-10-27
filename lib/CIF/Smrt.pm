@@ -216,8 +216,9 @@ sub process {
     
     warn 'parsing...' if($::debug);
     my $recs = $self->parse();
+    my $_nr = $#$recs + 1;
+    warn "mapping $_nr recs..." if($::debug);
     
-    warn 'mapping...' if($::debug);
     foreach my $r (@$recs){
         #delete($_->{'regex'}) if($_->{'regex'});
         foreach my $key (keys %$r){
@@ -234,18 +235,28 @@ sub process {
         }
     }
     
-    warn 'sorting...' if($::debug);
+    $_nr = $#$recs + 1;
+    warn "sorting $_nr recs..." if($::debug);
     $recs = [ sort { $b->{'dt'} <=> $a->{'dt'} } @$recs ];
     
-    warn 'submitting...' if($::debug);
+    $_nr = $#$recs + 1;
+    warn "submitting $_nr recs..." if($::debug);
     
     my @array;
+    my $_ac = 0;
     foreach (@$recs){
-        last if($_->{'dt'} < $self->get_goback());
+        if($_->{'dt'} < $self->get_goback()) {
+        	print "last called after processing $_ac records\n";
+        	last;
+        }
+        $_ac++;
         $_->{'id'} = generate_uuid_random();
         my $iodef = Iodef::Pb::Simple->new($_);
-        push(@array,$iodef->encode());
+        push(@array, $iodef->encode());
     }
+    
+    $_nr = $#array + 1;
+   warn "creating submission containing $_nr recs..." if ($::debug);
    
     ## TODO -- thread out analytics
     
