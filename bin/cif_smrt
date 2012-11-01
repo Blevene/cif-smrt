@@ -86,6 +86,5 @@ die($err."\n\n".usage()) if($err);
 ($err,$ret) = $ret->process();
 
 die $err if($err);
-warn 'done...';
 
 exit(0);
