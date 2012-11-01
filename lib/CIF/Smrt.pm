@@ -256,7 +256,7 @@ sub process {
     }
     
     $_nr = $#array + 1;
-   warn "creating submission containing $_nr recs..." if ($::debug);
+    warn "creating submission containing $_nr recs..." if ($::debug);
    
     ## TODO -- thread out analytics
     
@@ -269,6 +269,8 @@ sub process {
         data    => \@array
     });
  
+    warn "sending records..." if ($::debug);
+
     my $err;
     ($err,$ret) = $self->get_client->submit($ret);
     return $err if($err);
