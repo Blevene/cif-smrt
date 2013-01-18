@@ -40,6 +40,7 @@ sub new {
     my ($err,$ret) = CIF::Client->new({
         config  => $args->{'config'}
     });
+    
     return $err if($err);
     $self->set_client($ret);
   
