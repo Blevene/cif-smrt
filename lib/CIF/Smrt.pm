@@ -253,7 +253,10 @@ sub process {
         $_ac++;
         $_->{'id'} = generate_uuid_random();
         my $iodef = Iodef::Pb::Simple->new($_);
-        push(@array, $iodef->encode());
+        push(@array, 
+        	{ 'baseObjectType' => 'RFC5070_IODEF_v1_pb2',
+        	  'data'           => $iodef
+        	});
     }
     
     $_nr = $#array + 1;
@@ -264,16 +267,16 @@ sub process {
     ## TODO -- re-write using the client in version 1.1
     
     ## TODO -- mod this out, % 1000 or so
-    my $ret = $self->get_client->new_submission({
-        #apikey  => $self->get_client->get_apikey(),
-        guid    => $self->get_rules->{'guid'},
-        data    => \@array
-    });
+    #my $ret = $self->get_client->new_submission({
+    #    #apikey  => $self->get_client->get_apikey(),
+    #    guid    => $self->get_rules->{'guid'},
+    #    data    => \@array
+    #});
  
     warn "sending records..." if ($::debug);
 
-    my $err;
-    ($err,$ret) = $self->get_client->submit($ret);
+   
+    my ($err,$ret) = $self->get_client->submit(\@array);
     return $err if($err);
     
     return(undef,$ret);
