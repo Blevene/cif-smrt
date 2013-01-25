@@ -255,7 +255,7 @@ sub process {
         my $iodef = Iodef::Pb::Simple->new($_);
         push(@array, 
         	{ 'baseObjectType' => 'RFC5070_IODEF_v1_pb2',
-        	  'data'           => $iodef
+        	  'data'           => $iodef->encode()
         	});
     }
     
@@ -273,7 +273,7 @@ sub process {
     #    data    => \@array
     #});
  
-    warn "sending records..." if ($::debug);
+    warn "sending records: " . @array if ($::debug);
 
    
     my ($err,$ret) = $self->get_client->submit(\@array);
